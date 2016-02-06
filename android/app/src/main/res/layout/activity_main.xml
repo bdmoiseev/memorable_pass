@@ -1,0 +1,112 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+    <TextView android:text="@string/title" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/title_height"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentTop="false"
+        android:layout_alignWithParentIfMissing="false"
+        android:gravity="center"
+        android:id="@+id/textViewTitle"
+        android:layout_alignParentEnd="false"
+        android:textColor="#ffa500" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/service_name"
+        android:id="@+id/textViewServiceName"
+        android:layout_below="@+id/textViewTitle"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextServiceName"
+        android:layout_below="@+id/textViewServiceName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/private_key"
+        android:id="@+id/textViewPrivateKey"
+        android:layout_below="@+id/editTextServiceName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/show_private_key"
+        android:id="@+id/checkBoxShowPrivateKey"
+        android:layout_below="@+id/editTextPrivateKey"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/to_clipboard"
+        android:id="@+id/checkBoxToClipboard"
+        android:checked="true"
+        android:layout_below="@+id/checkBoxShowPassword"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/editTextPrivateKey"
+        android:layout_below="@+id/textViewPrivateKey"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:password="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/show_pass"
+        android:id="@+id/checkBoxShowPassword"
+        android:layout_below="@+id/checkBoxShowPrivateKey"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/create_password"
+        android:id="@+id/buttonStart"
+        android:background="#ffa500"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:layout_below="@+id/editTextNewPassword"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="none"
+        android:ems="10"
+        android:id="@+id/editTextNewPassword"
+        android:layout_below="@+id/checkBoxToClipboard"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:editable="false"
+        android:elegantTextHeight="false"
+        android:enabled="true" />
+
+</RelativeLayout>
