@@ -59,6 +59,13 @@ def run():
         default=2, help='number of outer symbols')
     arguments = argument_parser.parse_args()
 
+    if arguments.n_syllables <= 0:
+        raise RuntimeError("Number of syllables must be positive");
+    if arguments.n_end_symbols < 0:
+        raise RuntimeError("Number of end symbols must be non-negative");
+    if arguments.n_outer_symbols < 0:
+        raise RuntimeError("Number of outer symbols must be non-negative");
+
     if arguments.pipe:
         while True:
             try:
@@ -72,7 +79,12 @@ def run():
         service_name = raw_input()
         if service_name != service_name.strip():
             warnings.warn("Whitespaces in service name")
+        if len(service_name) == 0:
+            warnings.warn("Empty name of the service")
+
         secret = getpass.getpass('Secret password:')
+        if len(secret) == 0:
+            raise RuntimeError("Secret password cannot be empty")
         repeat = getpass.getpass('Repeat secret password:')
         if repeat != secret:
             raise RuntimeError('Secret passwords are not equal, try again')
