@@ -52,7 +52,7 @@ def run():
     argument_parser.add_argument('-p', '--pipe', action='store_true',
         help='Use in pipe mode (convert input strings to passwords)')
     argument_parser.add_argument('--n_syllables', action='store', type=int,
-        default=3, help='number of syllables in main part of the password')
+        default=4, help='number of syllables in main part of the password')
     argument_parser.add_argument('--n_end_symbols', action='store', type=int,
         default=2, help='number of additional symbols')
     argument_parser.add_argument('--n_outer_symbols', action='store', type=int,
