@@ -6,8 +6,8 @@ import sys
 import getpass
 import warnings
 
-consonants = 'qwrtypsdfghjklzxcvbnmQWRTYPSDFGHJKLZXCVBNM$6'
-vowels = 'aeiouAEIOU01@'
+consonants = 'qwrtypsdfghjklzxcvbnmQWRTYPSDFGHJKLZXCVBNM'
+vowels = 'aeiouAEIOU'
 specsymbols = ['()', ')(', '[]', '][', '{}', '}{', '!!', '??', '..', \
     ',,', '<>', '><', '/\\', '\\/', '||', '__', '@@', '::', ';;', '""', \
     '\'\'', '##', '$$', '%%', '^^', '&&', '**', '--', '++', '==']
