@@ -310,6 +310,16 @@
                 background-color: #73D4D0;
                 color: #00403D;
             }
+            input.href_button {
+                display: inline;
+                float: right;
+                user-select: none;
+                outline: none;
+                width: 10.65em;
+                border: 1px;
+                border-style: solid;
+                border-color: #00403D;
+            }
 
             div.input {
                 padding-left: 0.5em;
@@ -379,6 +389,9 @@
                 </div>
             </div>
             <div class="main_description">
+                <form>
+                    <input type="image" src="github.png" class="href_button" name="github" value="Репозиторий на github.com" onClick="window.open('https://github.com/bdmoiseev/memorable_pass')"></input>
+                </form>
                 Перед Вами оригинальный генератор уникальных паролей. Что же в нём оригинального, почему стоит воспользоваться именно им? Вот несколько причин:
                 <ul>
                     <li><b>Повторяемость</b>: вам не нужно запоминать или хранить кучу паролей, ведь вы сможете сгенерировать тот же пароль заново!</li>

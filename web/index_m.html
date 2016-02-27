@@ -306,6 +306,16 @@
                 background-color: #73D4D0;
                 color: #00403D;
             }
+            input.href_button {
+                display: inline;
+                user-select: none;
+                outline: none;
+                width: 45%;
+                border: 1px;
+                border-style: solid;
+                border-color: #00403D;
+                padding-left: 0.5em;
+            }
 
             div.input {
                 font-size: 125%;
@@ -375,6 +385,13 @@
                         <input type="button" class="button" name="button" value="Получить пароль"
                             onClick="if (this.form.key.value != this.form.key_repeat.value) {alert('Private keys are not equal')} else {
                                 if (this.form.key.value == '') {alert('Private key cannot be empty');} else {this.form.new_pass.value = pass_by_string(this.form.service.value + this.form.key.value)}}">
+                    </div>
+                </div>
+                <div class="text">
+                    <div class="input">
+                        <form>
+                            <input type="image" src="github.png" class="href_button" name="github" value="Репозиторий на github.com" onClick="window.open('https://github.com/bdmoiseev/memorable_pass')"></input>
+                        </form>
                     </div>
                 </div>
             </div>
