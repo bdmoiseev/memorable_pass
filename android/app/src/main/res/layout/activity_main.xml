@@ -25,15 +25,19 @@
         android:id="@+id/textViewServiceName"
         android:layout_below="@+id/textViewTitle"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textSize="@dimen/font_size" />
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/fields_height"
         android:id="@+id/editTextServiceName"
         android:layout_below="@+id/textViewServiceName"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:inputType="text"
+        android:height="@dimen/fields_height"
+        android:singleLine="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -43,7 +47,8 @@
         android:id="@+id/textViewPrivateKey"
         android:layout_below="@+id/editTextServiceName"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textSize="@dimen/font_size" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -52,61 +57,61 @@
         android:id="@+id/checkBoxShowPrivateKey"
         android:layout_below="@+id/editTextPrivateKey"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/to_clipboard"
-        android:id="@+id/checkBoxToClipboard"
-        android:checked="true"
-        android:layout_below="@+id/checkBoxShowPassword"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textSize="@dimen/font_size" />
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
+        android:layout_height="@dimen/fields_height"
+        android:inputType="textPassword|text"
         android:ems="10"
         android:id="@+id/editTextPrivateKey"
         android:layout_below="@+id/textViewPrivateKey"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:password="false" />
+        android:password="false"
+        android:height="@dimen/fields_height"
+        android:singleLine="true" />
 
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/show_pass"
-        android:id="@+id/checkBoxShowPassword"
-        android:layout_below="@+id/checkBoxShowPrivateKey"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/create_password"
-        android:id="@+id/buttonStart"
-        android:background="#ffa500"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
-        android:layout_below="@+id/editTextNewPassword"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+    <ImageButton
+        android:layout_width="@dimen/fields_height"
+        android:layout_height="@dimen/fields_height"
+        android:id="@+id/ClipButton"
+        android:layout_above="@+id/buttonStart"
+        android:layout_alignRight="@+id/buttonStart"
+        android:layout_alignEnd="@+id/buttonStart"
+        android:src="@drawable/copy_icon"
+        android:background="#000000ff" />
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/fields_height"
         android:inputType="none"
         android:ems="10"
         android:id="@+id/editTextNewPassword"
-        android:layout_below="@+id/checkBoxToClipboard"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:editable="false"
         android:elegantTextHeight="false"
-        android:enabled="true" />
+        android:focusable="false"
+        android:textIsSelectable="true"
+        android:selectAllOnFocus="true"
+        android:layout_toLeftOf="@+id/ClipButton"
+        android:layout_toStartOf="@+id/ClipButton"
+        android:height="@dimen/fields_height"
+        android:singleLine="true"
+        android:layout_below="@+id/checkBoxShowPrivateKey" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fields_height"
+        android:text="@string/create_password"
+        android:id="@+id/buttonStart"
+        android:background="#ffa500"
+        android:layout_below="@+id/editTextNewPassword"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="false"
+        android:height="@dimen/fields_height"
+        android:textSize="@dimen/font_size" />
 
 </RelativeLayout>

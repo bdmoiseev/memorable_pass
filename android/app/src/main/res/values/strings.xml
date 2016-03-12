@@ -3,8 +3,8 @@
 
     <string name="title">Твои пароли</string>
     <string name="service_name">Имя сервиса (сайта, почты и т.п.), для которого нужен пароль:</string>
-    <string name="private_key">Приватный ключ:</string>
-    <string name="show_private_key">Показать приватный ключ</string>
+    <string name="private_key">Универсальный пароль:</string>
+    <string name="show_private_key">Показать универсальный пароль</string>
     <string name="show_pass">Показать созданный пароль</string>
     <string name="to_clipboard">Скопировать в буфер</string>
     <string name="create_password">Создать пароль</string>

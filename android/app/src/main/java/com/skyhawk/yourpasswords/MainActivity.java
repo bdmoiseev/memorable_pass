@@ -1,10 +1,17 @@
 package com.skyhawk.yourpasswords;
 
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.os.Bundle;
+import android.text.InputType;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -30,6 +37,14 @@ public class MainActivity extends Activity {
 
         Button buttonStart = (Button) findViewById(R.id.buttonStart);
         buttonStart.setOnClickListener(new ButtonStartOnClickListener());
+
+        CheckBox showPassword = (CheckBox) findViewById(R.id.checkBoxShowPrivateKey);
+        showPassword.setOnCheckedChangeListener(
+                new ShowPrivateKeyCheckBoxOnCheckedChangeListener());
+
+        ImageButton buttonClip = (ImageButton) findViewById(R.id.ClipButton);
+        buttonClip.setOnClickListener(new ClipButtonOnClickListener());
+        buttonClip.setOnTouchListener(new ClipButtonOnTouchListener());
     }
 
     private final class ButtonStartOnClickListener implements View.OnClickListener {
@@ -51,6 +66,10 @@ public class MainActivity extends Activity {
             String privateKey = ((EditText) findViewById(R.id.editTextPrivateKey)).getText().toString();
             EditText newPassword = (EditText) findViewById(R.id.editTextNewPassword);
             newPassword.setText(passByString(serviceName + privateKey).toString());
+            newPassword.setFocusable(true);
+            newPassword.setFocusableInTouchMode(true);
+            newPassword.requestFocus();
+            newPassword.selectAll();
         }
 
         private String passByString(String string) {
@@ -104,6 +123,48 @@ public class MainActivity extends Activity {
                 Code = Code.divide(numChars);
                 return nextChar;
             }
+        }
+    }
+
+    private final class ShowPrivateKeyCheckBoxOnCheckedChangeListener
+            implements CheckBox.OnCheckedChangeListener {
+        @Override
+        public void onCheckedChanged(CompoundButton button, boolean value) {
+            EditText privateKeyEditText = (EditText) findViewById(R.id.editTextPrivateKey);
+            if (value) {
+                privateKeyEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+            } else {
+                privateKeyEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            }
+            privateKeyEditText.setSelection(privateKeyEditText.getText().length());
+        }
+    }
+
+    private final class ClipButtonOnClickListener
+            implements ImageButton.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+            EditText newPassword = (EditText) findViewById(R.id.editTextNewPassword);
+            String text = newPassword.getText().toString();
+            clipboard.setPrimaryClip(ClipData.newPlainText(text, text));
+        }
+    }
+
+    private final class ClipButtonOnTouchListener
+            implements ImageButton.OnTouchListener {
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            ImageButton button = (ImageButton) v;
+            if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                button.setImageDrawable(
+                        getResources().getDrawable(R.drawable.copy_icon_pressed));
+            }
+            if(event.getAction() == MotionEvent.ACTION_UP) {
+                button.setImageDrawable(
+                        getResources().getDrawable(R.drawable.copy_icon));
+            }
+            return false;
         }
     }
 }
