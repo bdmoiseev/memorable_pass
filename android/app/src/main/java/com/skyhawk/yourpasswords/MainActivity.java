@@ -3,6 +3,8 @@ package com.skyhawk.yourpasswords;
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.MotionEvent;
@@ -45,6 +47,9 @@ public class MainActivity extends Activity {
         ImageButton buttonClip = (ImageButton) findViewById(R.id.ClipButton);
         buttonClip.setOnClickListener(new ClipButtonOnClickListener());
         buttonClip.setOnTouchListener(new ClipButtonOnTouchListener());
+
+        Button webVersionButton = (Button) findViewById(R.id.webVersionButton);
+        webVersionButton.setOnClickListener(new WebVersionButtonClickListener());
     }
 
     private final class ButtonStartOnClickListener implements View.OnClickListener {
@@ -165,6 +170,15 @@ public class MainActivity extends Activity {
                         getResources().getDrawable(R.drawable.copy_icon));
             }
             return false;
+        }
+    }
+
+    private final class WebVersionButtonClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(getResources().getString(R.string.web_version_url)));
+            startActivity(intent);
         }
     }
 }
