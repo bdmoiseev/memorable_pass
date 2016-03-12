@@ -6,12 +6,12 @@ import sys
 import getpass
 import warnings
 
-consonants = 'qwrtypsdfghjklzxcvbnmQWRTYPSDFGHJKLZXCVBNM'
-vowels = 'aeiouAEIOU'
+consonants = 'qwrtypsdfghjkzxcvbnmQWRTYPSDFGHJKLZXCVBNM'
+vowels = 'aeiouAEOU'
 specsymbols = ['()', ')(', '[]', '][', '{}', '}{', '!!', '??', '..', \
     ',,', '<>', '><', '/\\', '\\/', '||', '__', '@@', '::', ';;', '""', \
     '\'\'', '##', '$$', '%%', '^^', '&&', '**', '--', '++', '==']
-digits = '0123456789'
+digits = '23456789'
 
 class CharByHashGenerator:
     def __init__(self, string):

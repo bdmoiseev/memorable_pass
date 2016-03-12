@@ -49,11 +49,11 @@ public class MainActivity extends Activity {
 
     private final class ButtonStartOnClickListener implements View.OnClickListener {
         private final List<Character> Consonants = Arrays.asList('q','w','r','t','y','p','s',
-                'd','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','R','T','Y',
+                'd','f','g','h','j','k','z','x','c','v','b','n','m','Q','W','R','T','Y',
                 'P','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M');
         private final List<Character> Vowels = Arrays.asList('a','e','i','o','u','A','E',
-                'I','O','U');
-        private final List<Character> Digits = Arrays.asList('0','1','2','3','4','5','6',
+                'O','U');
+        private final List<Character> Digits = Arrays.asList('2','3','4','5','6',
                 '7','8','9');
         private final List<String> Specsymbols = Arrays.asList("()", ")(", "[]", "][",
                 "{}", "}{", "!!", "??", "..", ",,", "<>", "><", "/\\", "\\/", "||", "__",
