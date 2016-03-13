@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Твои пароли</string>
+    <string name="app_name">Мои пароли</string>
 
-    <string name="title">Твои пароли</string>
+    <string name="title">Мои пароли</string>
     <string name="service_name">Имя сервиса (сайта, почты и т.п.), для которого нужен пароль:</string>
     <string name="private_key">Универсальный пароль:</string>
     <string name="show_private_key">Показать универсальный пароль</string>
