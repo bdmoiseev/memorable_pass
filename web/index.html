@@ -275,8 +275,8 @@
         <style type="text/css">
             html,
             body{
-                height: 100%;
-                background-color: #F3FFFF;
+                height: 98%;
+                background: #00403D;
             }
             .wrapper {
                 display: table;
@@ -287,12 +287,16 @@
                 display: table-row;
                 height: 100%;
             }
-            .footer {
-                /*position: absolute;*/
+            div.footer {
                 left: 0;
                 bottom: 0;
-                width: 100%;
-                /*height: 10px;*/
+                /*padding: 5px 5px 5px 5px;*/
+            }
+            a.footer_a {
+                color: #F3FFFF;
+            }
+            :visited {
+                color: #F3FFFF;
             }
 
             input.button {
@@ -308,6 +312,7 @@
                 border: none;
                 text-align: center;
                 font-family: "trebuchet ms";
+                margin-top: 10px;
             }
             input.button:active {
                 background: #00403D;
@@ -324,7 +329,7 @@
                 border-style: solid;
                 border-color: #00403D;
                 box-shadow: 0;
-                width: 15em;
+                width: 100%;
                 background-color: #73D4D0;
                 color: #00403D;
             }
@@ -333,35 +338,93 @@
                 float: right;
                 user-select: none;
                 outline: none;
-                width: 10.65em;
+                /*width: 127px;*/
+                height: 50px;
                 border: 1px;
                 border-style: solid;
                 border-color: #00403D;
             }
 
-            div.input {
-                padding-left: 0.5em;
-                padding-top: 0.5em;
-            }
-            div.text {
-                padding-left: 1em;
-                padding-top: 0.5em;
-                font-family: "trebuchet ms";
-                font-size: 125%;
+            div.header {
+                padding-left: 10px;
+                padding-right: 10px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                background: #F3FFFF;
+
+                font-family: "Helvetica";
+                font-size: 200%;
                 color: #00403D;
-                width: 15em;
+
+                height: 50px;
+                border: 1px;
+                border-style: solid;
+                border-color: #00403D;
             }
-            div.form {
+            div.header_image {
                 display: inline;
                 float: left;
-                width: 23em;
+                padding-right: 30px;
+            }
+            div.header_text {
+                display: inline;
+                float: left;
+                font-weight: bold;
+                padding-top: 0.2em;
+            }
+            div.input {
+                /*padding-left: 0.5em;*/
+                padding-top: 0.2em;
+            }
+            div.text {
+                /*padding-left: 1em;*/
+                /*padding-right: 1em;*/
+                padding-top: 0.5em;
+                font-family: "trebuchet ms";
+                font-size: 125%;
+                color: #00201F;
+                width: 100%;
+            }
+            div.form_block {
+                width: 35%;
+                min-width: 300px;
+                display: inline;
+                float: left;
+            }
+            div.form {
+                padding: 30px 30px 30px 30px;
+                background: #F3FFFF;
+
+                border: 1px;
+                border-style: solid;
+                border-color: #00403D;
+
+                margin-right: 10px;
+                margin-top: 10px;
+            }
+            div.text_block {
+                width: 65%;
+                display: inline;
+                float: left;
             }
             div.main_description {
-                padding-left: 1em;
-                padding-top: 0.5em;
-                font-size: 125%;
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+
+                font-size: 100%;
                 font-family: "trebuchet ms";
-                padding-bottom: 0px;
+                text-align: justify;
+                color: #00201F;
+
+                background: #F3FFFF;
+                min-width: 610px;
+
+                border: 1px;
+                border-style: solid;
+                border-color: #00403D;
+                margin-top: 10px;
             }
         </style>
     </head>
@@ -369,65 +432,77 @@
     <body>
         <div class="wrapper">
         <div class="content">
-            <form name="your_password">
-                <div class="form">
-                    <div class="text">
-                        Имя сервиса (сайта, почты и т.п.), для которого нужен пароль:<br>
-                        <div class="input">
-                            <input type="text" name="service" class="input" size="20"><br>
-                        </div>
-                    </div>
-                    <div class="text">
-                        Универсальный пароль<s><span title="Ваш секретный универсальный пароль, используемый для генерации паролей для всех сервисов и сайтов">*</span></s>:<br>
-                        <div class="input">
-                            <input type="password" name="key" class="input" size="20"><br>
-                        </div>
-                    </div>
-                    <div class="text">
-                        Повтор универсального пароля:<br>
-                        <div class="input">
-                            <input type="password" name="key_repeat" class="input" size="20"><br>
-                        </div>
-                    </div>
-                    <div class="text">
-                        Сгенерированный пароль:<br>
-                        <div class="input">
-                            <input type="text" name="new_pass" class="input" size="20" disabled><br>
-                        </div>
-                    </div>
-                    <div class="text">
-                        <div class="input">
-                            <input type="button" class="button" name="button" value="Получить пароль"
-                                onClick="if (this.form.key.value != this.form.key_repeat.value) {alert('Private keys are not equal')} else {
-                                    if (this.form.key.value == '') {alert('Приватный ключ не может быть пустым');} else {this.form.new_pass.value = pass_by_string(this.form.service.value + this.form.key.value)}}">
-                        </div>
-                    </div>
-                </div>
-            </form>
-
-            <div class="main_description">
+            <div class="header">
                 <form>
                     <input type="image" src="github.png" class="href_button" name="github" value="Репозиторий на github.com" onClick="window.open('https://github.com/bdmoiseev/memorable_pass')"></input>
                 </form>
-                Вам больше не придётся задумываться о том, как хранить пароли так, чтобы иметь к ним доступ в любых условиях и при этом защитить их от злоумышленников. Ведь на самом деле хранить пароли не нужно! С помощью данного сайта вы всегда сможете сгенерировать тот же самый пароль заново на любом устройстве, основываясь лишь на единственном универсальном пароле и имени ресурса.<br>
-
-
-                Вот что делает этот сервис уникальным:
-                <ul>
-                <li> Он чрезвычайно прост в использовании.</li>
-                <li> Вы никуда не отправляете свой универсальный пароль, что защищает ваши пароли в случае, если какой-то из них достанется мошенникам.</li>
-                <li> Вам больше не нужно записывать пароли: никаких менеджеров паролей при стопроцентной защите!
-                <li> На каждом сайте Вы сможете использовать уникальный пароль, что спасёт Ваши аккаунты в случае взлома одного из сайтов или его недобростовестных владельев.</li>
-                <li> Вы можете получить доступ к своим паролям в любой точке мира и с любого устройства: помимо сайта, вы можете установить аналогичное приложение на свой телефон (на данный момент доступна только версия для android).</li>
-                <li> Вам не нужно запоминать десятки паролей, большинство из которых используется редко и впоследствии невозможно вспомнить: достаточно помнить единственный универсальный пароль.</li>
-                <li> Сгенерированные пароли имеют читаемый вид, что позволяет запомнить те из них, которыми приходится пользоваться часто.</li>
-                </ul>
+                <div class="header_image">
+                    <img src="logo_big.png">
+                </div>
+                <div class="header_text">
+                    Забудьте о своих паролях!
+                </div>
             </div>
-            <br>
+            <div class="form_block">
+                <form name="your_password">
+                    <div class="form">
+                        <div class="text">
+                            Имя сервиса (сайта, почты и т.п.), для которого нужен пароль:<br>
+                            <div class="input">
+                                <input type="text" name="service" class="input" size="20"><br>
+                            </div>
+                        </div>
+                        <div class="text">
+                            Универсальный пароль:<br>
+                            <div class="input">
+                                <input type="password" name="key" class="input" size="20"><br>
+                            </div>
+                        </div>
+                        <div class="text">
+                            Повтор универсального пароля:<br>
+                            <div class="input">
+                                <input type="password" name="key_repeat" class="input" size="20"><br>
+                            </div>
+                        </div>
+                        <div class="text">
+                            Сгенерированный пароль:<br>
+                            <div class="input">
+                                <input type="text" name="new_pass" class="input" size="20" disabled><br>
+                            </div>
+                        </div>
+                        <div class="text">
+                            <div class="input">
+                                <input type="button" class="button" name="button" value="Получить пароль"
+                                    onClick="if (this.form.key.value != this.form.key_repeat.value) {alert('Private keys are not equal')} else {
+                                        if (this.form.key.value == '') {alert('Приватный ключ не может быть пустым');} else {this.form.new_pass.value = pass_by_string(this.form.service.value + this.form.key.value)}}">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="text_block">
+                <div class="main_description">
+                    Вам больше не придётся задумываться о том, как хранить пароли так, чтобы иметь к ним доступ в любых условиях и при этом защитить их от злоумышленников. Ведь на самом деле хранить пароли не нужно! С помощью данного сайта вы всегда сможете сгенерировать тот же самый пароль заново на любом устройстве, основываясь лишь на единственном универсальном пароле и имени ресурса.<br>
+                </div>
+
+                <div class="main_description">
+                    Вот что делает этот сервис уникальным:
+
+                    <ul>
+                    <li> Он чрезвычайно прост в использовании.</li>
+                    <li> Вы никуда не отправляете свой универсальный пароль, что защищает ваши пароли в случае, если какой-то из них достанется мошенникам.</li>
+                    <li> Вам больше не нужно записывать пароли: никаких менеджеров паролей при стопроцентной защите!</li>
+                    <li> На каждом сайте Вы сможете использовать уникальный пароль, что спасёт Ваши аккаунты в случае взлома одного из сайтов или его недобростовестных владельев.</li>
+                    <li> Вы можете получить доступ к своим паролям в любой точке мира и с любого устройства: помимо сайта, вы можете установить аналогичное приложение на свой телефон (на данный момент доступна только версия для android).</li>
+                    <li> Вам не нужно запоминать десятки паролей, большинство из которых используется редко и впоследствии невозможно вспомнить: достаточно помнить единственный универсальный пароль.</li>
+                    <li> Сгенерированные пароли имеют читаемый вид, что позволяет запомнить те из них, которыми приходится пользоваться часто.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
             <div class="footer">
                 <p align="center">
-                    <a href="http://your-pass.ru/privacy_policy.html">
+                    <a href="http://your-pass.ru/privacy_policy.html" style="footer_a">
                         Лицензионное соглашение и политика конфиденциальности
                     </a>
                 </p>
